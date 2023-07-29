@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_name: MyString
+  manufacturer: MyString
+  operating_system: MyString
+  minimum_os_version: MyString
+  display_resolution: MyString
+  ram: 1
+  storage: 1
+
+two:
+  device_name: MyString
+  manufacturer: MyString
+  operating_system: MyString
+  minimum_os_version: MyString
+  display_resolution: MyString
+  ram: 1
+  storage: 1

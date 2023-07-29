@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_29_071833) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_29_073433) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "app_categories", force: :cascade do |t|
+    t.bigint "app_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_id"], name: "index_app_categories_on_app_id"
+    t.index ["category_id"], name: "index_app_categories_on_category_id"
+  end
 
   create_table "apps", force: :cascade do |t|
     t.string "name"
@@ -27,6 +36,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_071833) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string "device_name"
+    t.string "manufacturer"
+    t.string "operating_system"
+    t.string "minimum_os_version"
+    t.string "display_resolution"
+    t.integer "ram"
+    t.integer "storage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_071833) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "app_categories", "apps"
+  add_foreign_key "app_categories", "categories"
   add_foreign_key "apps", "users"
   add_foreign_key "reviews", "apps"
   add_foreign_key "reviews", "users"
