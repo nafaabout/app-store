@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails-hackathon/team-125.git
-  revision: bad9020927c3d581aff45a34e709ea7f57e7ae3c
+  revision: b5e7bfd55f468ae908e9c7fbb5baa3d86bbfaed2
   branch: main
   specs:
     app_diag (0.1.0)
