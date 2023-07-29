@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_29_073433) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_29_080913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_073433) do
     t.datetime "updated_at", null: false
     t.index ["app_id"], name: "index_app_categories_on_app_id"
     t.index ["category_id"], name: "index_app_categories_on_category_id"
+  end
+
+  create_table "app_downloads", force: :cascade do |t|
+    t.bigint "app_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "download_date"
+    t.bigint "device_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_id"], name: "index_app_downloads_on_app_id"
+    t.index ["device_id"], name: "index_app_downloads_on_device_id"
+    t.index ["user_id"], name: "index_app_downloads_on_user_id"
   end
 
   create_table "apps", force: :cascade do |t|
@@ -53,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_073433) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text "content"
+    t.text "comment", default: "", null: false
     t.integer "rating"
     t.bigint "user_id", null: false
     t.bigint "app_id", null: false
@@ -72,6 +84,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_073433) do
 
   add_foreign_key "app_categories", "apps"
   add_foreign_key "app_categories", "categories"
+  add_foreign_key "app_downloads", "apps"
+  add_foreign_key "app_downloads", "devices"
+  add_foreign_key "app_downloads", "users"
   add_foreign_key "apps", "users"
   add_foreign_key "reviews", "apps"
   add_foreign_key "reviews", "users"
