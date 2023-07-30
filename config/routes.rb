@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount AppDiag::Engine => '/app_diag'
-
+  root to: redirect { Rails.application.routes.url_helpers.app_diag_path }
   resources :reviews
   resources :categories
   resources :apps
