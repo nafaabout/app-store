@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails-hackathon/team-125.git
-  revision: 2a617d33a327ee6b12b5b68bc5498a41be2d05d9
+  revision: 85094ff3c364a9300c34842740b96a66af7883e7
   branch: main
   specs:
     app_diag (0.1.0)
@@ -62,6 +62,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.0.6)
       activesupport (= 7.0.6)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (7.0.6)
       activemodel (= 7.0.6)
       activesupport (= 7.0.6)
@@ -98,6 +102,13 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    draper (4.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
+      ruby2_keywords
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -179,7 +190,10 @@ GEM
     regexp_parser (2.8.1)
     reline (0.3.7)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     rexml (3.2.6)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -229,6 +243,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  draper (~> 4.0)
   importmap-rails
   jbuilder
   pg (~> 1.1)

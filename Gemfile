@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.3"
 
+gem "app_diag", github: 'rails-hackathon/team-125', branch: 'main'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
 
@@ -74,4 +76,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "app_diag", github: 'rails-hackathon/team-125', branch: 'main'
+gem "draper", "~> 4.0"
