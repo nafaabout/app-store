@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   has_many :app_downloads, dependent: :destroy
   has_many :apps, through: :app_downloads
+  enum status: [:active, :away]
 
-  def free_apps
+  def self.free_apps
     apps.where(price: nil)
   end
 
-  def paid_apps
+  def self.paid_apps
     apps.where.not(price: nil)
   end
 
